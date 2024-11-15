@@ -1,0 +1,11 @@
+from flask import Blueprint, render_template
+from app.models.heladeria import Heladeria
+
+heladeria_bp = Blueprint('heladeria', __name__)
+
+# Instancia de Heladeria (puedes poblarla con datos de prueba)
+heladeria = Heladeria([], {})  # Reemplaza los parámetros con tus datos
+
+@heladeria_bp.route('/')
+def index():
+    return render_template('index.html', productos=heladeria.productos)
