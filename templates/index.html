@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Menú de Heladería</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+        h1 {
+            color: #4CAF50;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            background: #f9f9f9;
+            margin: 5px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <h1>Productos Disponibles</h1>
+    <ul>
+        {% if productos %}
+            {% for producto in productos %}
+                <li>{{ producto.nombre }} - ${{ producto.precio_publico }}</li>
+            {% endfor %}
+        {% else %}
+            <p>No hay productos disponibles en este momento.</p>
+        {% endif %}
+    </ul>
+</body>
+</html>
