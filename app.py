@@ -4,6 +4,7 @@ from sqlalchemy.orm import sessionmaker
 from models.models import Usuario, Ingrediente, Producto, Base
 from werkzeug.security import check_password_hash
 from config import Config
+from waitress import serve
 
 # Configurar la aplicación Flask
 app = Flask(__name__)
@@ -132,4 +133,4 @@ def logout():
     return redirect(url_for('login'))
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    serve(app, host='0.0.0.0', port=8080)
